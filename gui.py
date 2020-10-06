@@ -21,7 +21,7 @@ def password_maker(term_one,term_two):
     string.append(string_one)
     
     #select a part of term_two
-    while len(string_two) < 3:
+    while len(string_two) < 2:
         string_two =(term_two[0:random.randint(0,len(term_two))])
     
     string.append(string_two)
@@ -30,6 +30,10 @@ def password_maker(term_one,term_two):
     special += characters[random.randint(0,len(characters)-1)]
     string.append(special)
     
+    #Adding random characters for extra secure password
+    extra_char = (chr(random.randint(97,122)) + chr(random.randint(65,90)) + chr(random.randint(65,90)))
+    string.append(extra_char)
+
     #Shuffling of the list to produce random combinations of the elements
     random.shuffle(string)
     final_string = "".join(map(str,string))
